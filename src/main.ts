@@ -2,39 +2,39 @@ import './style.css'
 import { CountdownTimer } from './CountdownTimer';
 
 // --- Christmas Countdown Config ---
-// Constante para definir el umbral de notificación (modificable)
-const NOTIFY_DAYS = 7; // Cambia este valor para modificar el umbral de notificación
+// Constant to define the notification threshold (modifiable)
+const NOTIFY_DAYS = 7; // Change this value to modify the notification threshold
 
-// Elemento principal
+// Main element
 const appDiv = document.getElementById('app')!;
 appDiv.innerHTML = `
   <canvas id="snow-canvas"></canvas>
   <div id="countdown"></div>
 `;
 
-// Configurar canvas para nieve
+// Configure canvas for snow
 const canvas = document.getElementById('snow-canvas') as HTMLCanvasElement;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Sistema de nieve con canvas 2D
+// Snow system with 2D canvas
 const ctx = canvas.getContext('2d')!;
 const snowflakes: Array<{x: number, y: number, size: number, speed: number, drift: number, symbol: string}> = [];
 const snowSymbols = ['❄', '❅', '❆'];
 
-// Crear copos de nieve
+// Create snowflakes
 for (let i = 0; i < 150; i++) {
   snowflakes.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 20 + 15,
-    speed: Math.random() * 1 + 0.5,
-    drift: Math.random() * 0.5 - 0.25,
+    size: Math.random() * 10 + 10,
+    speed: Math.random() * 2 + 0.5,
+    drift: Math.random() * 0.1 - 0.25,
     symbol: snowSymbols[Math.floor(Math.random() * snowSymbols.length)]
   });
 }
 
-// Animar nieve
+// Animate snow
 function animateSnow() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
@@ -67,7 +67,7 @@ animateSnow();
 const countdownTimer = new CountdownTimer('countdown', NOTIFY_DAYS);
 countdownTimer.start();
 
-// Ajustar canvas al redimensionar ventana
+// Adjust canvas on window resize
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;

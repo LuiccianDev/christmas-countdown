@@ -18,7 +18,10 @@ export class CountdownTimer {
     this.countdownDiv.innerHTML = `
       <div class="countdown-container">
         <div class="countdown-content">
-          <h1 class="countdown-title">Christmas Countdown</h1>
+          <div class="countdown-title">
+                <div class="countdown-title-christmas" >Christmas </div>
+                <div class="countdown-title-countdown">Countdown </div>           
+          </div>
           <div class="countdown-wrapper">
             <div class="time-unit">
               <div class="flip-group">
@@ -105,10 +108,10 @@ export class CountdownTimer {
 
     const currentNumber = Number(element.getAttribute('data-number'));
     
-    // Si el valor no ha cambiado, no hacer nada
+    // If the value hasn't changed, do nothing
     if (currentNumber === value) return;
 
-    // Actualizar los títulos para el siguiente número
+    // Update titles for the next number
     const primary = element.querySelector('.primary');
     const secondary = element.querySelector('.secondary');
     
@@ -117,10 +120,10 @@ export class CountdownTimer {
       secondary.setAttribute('title', value.toString());
     }
 
-    // Agregar clase flip para iniciar animación
+    // Add flip class to start animation
     element.classList.add('flip');
 
-    // Después de la animación, actualizar el data-number y remover flip
+    // After animation, update data-number and remove flip
     setTimeout(() => {
       element.setAttribute('data-number', value.toString());
       element.classList.remove('flip');
@@ -171,9 +174,9 @@ export class CountdownTimer {
 
   private sendNotification(days: number): void {
     if (Notification.permission === 'granted') {
-      new Notification(`¡Solo faltan ${days} días para Navidad!`, {
+      new Notification(`Only ${days} days until Christmas!`, {
         icon: '🎄',
-        body: '¡La Navidad se acerca!'
+        body: 'Christmas is coming!'
       });
     }
   }

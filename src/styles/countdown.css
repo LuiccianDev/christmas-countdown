@@ -14,9 +14,20 @@
 
 .countdown-title {
   color: #ffffff;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin: 0;
+  font-size: 5rem;
+
 }
+.countdown-title-christmas{
+  margin-right: 200px;
+}
+.countdown-title-countdown {
+  font-size: 3rem;
+  margin-top: -60px;
+  margin-left: 150px;
+  font-size: 5rem;
+}
+
 
 .countdown-wrapper {
   display: flex;
