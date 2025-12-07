@@ -6,7 +6,7 @@
 }
 
 :root {
-  font-family: 'Pixelify Sans', 'Arial', sans-serif;
+  font-family: "Pixelify Sans", "Arial", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
@@ -16,11 +16,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url('/pixel.webp');
+  background: url("/pixel.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

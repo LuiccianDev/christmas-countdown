@@ -38,6 +38,7 @@ pnpm build
 La música de fondo utilizada en este proyecto proviene de [Pixabay](https://pixabay.com/music/), una plataforma de contenido libre de derechos de autor.
 
 Para agregar tu propia música:
+
 1. Descarga música navideña de [Pixabay Music](https://pixabay.com/music/)
 2. Guarda el archivo como `christmas-music.mp3` en la carpeta `public/`
 3. La música se reproducirá automáticamente con el control en la esquina superior izquierda

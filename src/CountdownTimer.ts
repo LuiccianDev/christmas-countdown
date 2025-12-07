@@ -107,14 +107,14 @@ export class CountdownTimer {
     if (!element) return;
 
     const currentNumber = Number(element.getAttribute('data-number'));
-    
+
     // If the value hasn't changed, do nothing
     if (currentNumber === value) return;
 
     // Update titles for the next number
     const primary = element.querySelector('.primary');
     const secondary = element.querySelector('.secondary');
-    
+
     if (primary && secondary) {
       primary.setAttribute('title', value.toString());
       secondary.setAttribute('title', value.toString());
@@ -132,7 +132,7 @@ export class CountdownTimer {
 
   private updateDigits(value: number, prefix: string, maxDigits: number): void {
     const digits = value.toString().padStart(maxDigits, '0').split('').map(Number);
-    
+
     if (maxDigits === 3) {
       this.updateFlipDigit(`${prefix}-hundreds`, digits[0]);
       this.updateFlipDigit(`${prefix}-tens`, digits[1]);
@@ -145,22 +145,22 @@ export class CountdownTimer {
 
   private updateCountdown(): void {
     const { days, hours, minutes, seconds } = this.calculateTimeLeft();
-    
+
     if (days !== this.currentValues.days) {
       this.updateDigits(days, 'days', 3);
       this.currentValues.days = days;
     }
-    
+
     if (hours !== this.currentValues.hours) {
       this.updateDigits(hours, 'hours', 2);
       this.currentValues.hours = hours;
     }
-    
+
     if (minutes !== this.currentValues.minutes) {
       this.updateDigits(minutes, 'minutes', 2);
       this.currentValues.minutes = minutes;
     }
-    
+
     if (seconds !== this.currentValues.seconds) {
       this.updateDigits(seconds, 'seconds', 2);
       this.currentValues.seconds = seconds;

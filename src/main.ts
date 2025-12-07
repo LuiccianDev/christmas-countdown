@@ -19,7 +19,7 @@ canvas.height = window.innerHeight;
 
 // Snow system with 2D canvas
 const ctx = canvas.getContext('2d')!;
-const snowflakes: Array<{x: number, y: number, size: number, speed: number, drift: number, symbol: string}> = [];
+const snowflakes: Array<{ x: number, y: number, size: number, speed: number, drift: number, symbol: string }> = [];
 const snowSymbols = ['❄', '❅', '❆'];
 
 // Create snowflakes
@@ -37,27 +37,27 @@ for (let i = 0; i < 150; i++) {
 // Animate snow
 function animateSnow() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
+
   snowflakes.forEach(flake => {
     ctx.font = `${flake.size}px Arial`;
     ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
     ctx.fillText(flake.symbol, flake.x, flake.y);
-    
+
     flake.y += flake.speed;
     flake.x += flake.drift;
-    
+
     if (flake.y > canvas.height) {
       flake.y = -20;
       flake.x = Math.random() * canvas.width;
     }
-    
+
     if (flake.x > canvas.width) {
       flake.x = 0;
     } else if (flake.x < 0) {
       flake.x = canvas.width;
     }
   });
-  
+
   requestAnimationFrame(animateSnow);
 }
 
