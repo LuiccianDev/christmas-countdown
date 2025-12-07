@@ -17,63 +17,65 @@ export class CountdownTimer {
   private createCountdownStructure(): void {
     this.countdownDiv.innerHTML = `
       <div class="countdown-container">
-        <h1 class="countdown-title">CHRISTMAS COUNTDOWN</h1>
-        <div class="countdown-wrapper">
-          <div class="time-unit">
-            <div class="flip-group">
-              <span class="number" id="days-hundreds" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
-              <span class="number" id="days-tens" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
-              <span class="number" id="days-ones" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
+        <div class="countdown-content">
+          <h1 class="countdown-title">CHRISTMAS COUNTDOWN</h1>
+          <div class="countdown-wrapper">
+            <div class="time-unit">
+              <div class="flip-group">
+                <span class="number" id="days-hundreds" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+                <span class="number" id="days-tens" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+                <span class="number" id="days-ones" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+              </div>
+              <div class="time-label">Days</div>
             </div>
-            <div class="time-label">Days</div>
-          </div>
-          <div class="time-unit">
-            <div class="flip-group">
-              <span class="number" id="hours-tens" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
-              <span class="number" id="hours-ones" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
+            <div class="time-unit">
+              <div class="flip-group">
+                <span class="number" id="hours-tens" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+                <span class="number" id="hours-ones" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+              </div>
+              <div class="time-label">Hours</div>
             </div>
-            <div class="time-label">Hours</div>
-          </div>
-          <div class="time-unit">
-            <div class="flip-group">
-              <span class="number" id="minutes-tens" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
-              <span class="number" id="minutes-ones" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
+            <div class="time-unit">
+              <div class="flip-group">
+                <span class="number" id="minutes-tens" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+                <span class="number" id="minutes-ones" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+              </div>
+              <div class="time-label">Minutes</div>
             </div>
-            <div class="time-label">Minutes</div>
-          </div>
-          <div class="time-unit">
-            <div class="flip-group">
-              <span class="number" id="seconds-tens" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
-              <span class="number" id="seconds-ones" data-number="0">
-                <span class="primary" title="0"></span>
-                <span class="secondary" title="0"></span>
-              </span>
+            <div class="time-unit">
+              <div class="flip-group">
+                <span class="number" id="seconds-tens" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+                <span class="number" id="seconds-ones" data-number="0">
+                  <span class="primary" title="0"></span>
+                  <span class="secondary" title="0"></span>
+                </span>
+              </div>
+              <div class="time-label">Seconds</div>
             </div>
-            <div class="time-label">Seconds</div>
           </div>
         </div>
       </div>

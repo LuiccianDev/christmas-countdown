@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'Arial', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,52 +20,54 @@ body, html {
   height: 100%;
   overflow: hidden;
   font-family: 'Arial', sans-serif;
-  background: #242424;
+  background: url('/pixel.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #countdown {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
   width: auto;
-}
-
-.container {
-  height: 200px;
   position: relative;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.countdown-container {
+.countdown-content {
   text-align: center;
-  background: rgba(26, 10, 58, 0.85);
-  padding: 25px 40px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .countdown-title {
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
   text-shadow: 
-    0 0 15px rgba(255, 0, 0, 0.8),
-    0 0 25px rgba(255, 0, 0, 0.6),
+    0 0 15px rgba(255, 0, 0, 1),
+    0 0 25px rgba(255, 0, 0, 1),
     2px 2px 5px rgba(0, 0, 0, 0.8);
   animation: glow 2s ease-in-out infinite alternate;
 }
@@ -68,21 +75,21 @@ body, html {
 @keyframes glow {
   from {
     text-shadow: 
-      0 0 15px rgba(255, 0, 0, 0.8),
-      0 0 25px rgba(255, 0, 0, 0.6),
-      2px 2px 5px rgba(0, 0, 0, 0.8);
+      0 0 15px rgba(255, 0, 0, 1),
+      0 0 25px rgba(255, 0, 0, 1),
+      2px 2px 5px rgba(68, 12, 12, 0.8);
   }
   to {
     text-shadow: 
       0 0 25px rgba(255, 0, 0, 1),
-      0 0 35px rgba(255, 0, 0, 0.8),
-      2px 2px 5px rgba(0, 0, 0, 0.8);
+      0 0 35px rgba(255, 0, 0, 0.1),
+      2px 2px 5px rgba(68, 12, 12, 0.8);
   }
 }
 
 .countdown-wrapper {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   align-items: flex-start;
 }
@@ -91,7 +98,7 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .flip-group {
@@ -100,11 +107,11 @@ body, html {
 }
 
 .time-label {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
@@ -112,7 +119,7 @@ body, html {
 .number {
   position: relative;
   float: left;
-  font-size: 4em;
+  font-size: 3em;
   width: 1em;
   height: 1.5em;
 }
@@ -250,14 +257,6 @@ body, html {
 [data-number="9"] span.primary:after { content: attr(title); }
 
 @media (max-width: 768px) {
-  #countdown {
-    top: 10px;
-  }
-
-  .countdown-container {
-    padding: 15px 20px;
-  }
-
   .countdown-title {
     font-size: 1.5rem;
     letter-spacing: 2px;
