@@ -2,6 +2,8 @@
 
 Una página web interactiva con cuenta regresiva para Navidad, con efectos de nieve y música de fondo.
 
+![Christmas Countdown Preview](./public/picReadme.png)
+
 ## Características
 
 - ⏰ Cuenta regresiva en tiempo real hasta Navidad
