@@ -2,12 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christmas Countdown</title>
   </head>
   <body>
     <div id="app"></div>
+    
+    <!-- Music Player -->
+    <div id="music-controls">
+      <button id="music-toggle" aria-label="Toggle music">
+        <span id="music-icon">🔊</span>
+      </button>
+    </div>
+    
+    <audio id="background-music" loop>
+      <source src="/public/music/christmasMusic.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+    
     <footer id="footer">
       <p>© 2025 Christmas Countdown. All rights reserved.</p>
       <p>Made with ❤️ for  <a class="refer" href="https://github.com/LuiccianDev" target="_blank">LuiccianDev</a></p>

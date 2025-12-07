@@ -72,3 +72,34 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+// --- Background Music Control ---
+const audio = document.getElementById('background-music') as HTMLAudioElement;
+const musicToggle = document.getElementById('music-toggle') as HTMLButtonElement;
+const musicIcon = document.getElementById('music-icon') as HTMLSpanElement;
+
+let isPlaying = false;
+
+// Set initial volume
+audio.volume = 0.3;
+
+musicToggle.addEventListener('click', () => {
+  if (isPlaying) {
+    audio.pause();
+    musicIcon.textContent = '🔇';
+    isPlaying = false;
+  } else {
+    audio.play().catch(err => console.log('Error playing audio:', err));
+    musicIcon.textContent = '🔊';
+    isPlaying = true;
+  }
+});
+
+// Auto-play attempt (some browsers block this)
+window.addEventListener('click', () => {
+  if (!isPlaying) {
+    audio.play().catch(err => console.log('Auto-play blocked:', err));
+    musicIcon.textContent = '🔊';
+    isPlaying = true;
+  }
+}, { once: true });
