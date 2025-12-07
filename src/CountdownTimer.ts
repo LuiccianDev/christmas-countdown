@@ -18,7 +18,7 @@ export class CountdownTimer {
     this.countdownDiv.innerHTML = `
       <div class="countdown-container">
         <div class="countdown-content">
-          <h1 class="countdown-title">CHRISTMAS COUNTDOWN</h1>
+          <h1 class="countdown-title">Christmas Countdown</h1>
           <div class="countdown-wrapper">
             <div class="time-unit">
               <div class="flip-group">

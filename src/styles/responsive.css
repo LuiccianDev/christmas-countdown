@@ -1,0 +1,24 @@
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  .countdown-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  .countdown-wrapper {
+    gap: 15px;
+  }
+
+  .flip-group {
+    gap: 3px;
+  }
+
+  .number {
+    font-size: 2.5em;
+  }
+
+  .time-label {
+    font-size: 0.8rem;
+  }
+}
