@@ -5,9 +5,6 @@ import { CountdownTimer } from './CountdownTimer';
 // Constante para definir el umbral de notificación (modificable)
 const NOTIFY_DAYS = 7; // Cambia este valor para modificar el umbral de notificación
 
-// Fecha objetivo: 25 de diciembre del año actual
-const christmasDate = new Date(new Date().getFullYear(), 11, 25, 0, 0, 0, 0);
-
 // Elemento principal
 const appDiv = document.getElementById('app')!;
 appDiv.innerHTML = `
