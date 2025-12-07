@@ -15,6 +15,7 @@ Una página web interactiva con cuenta regresiva para Navidad, con efectos de ni
 - TypeScript
 - Vite
 - CSS3
+- HTML5 Canvas 2D
 - HTML5 Audio API
 
 ## Instalación
