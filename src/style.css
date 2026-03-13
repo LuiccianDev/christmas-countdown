@@ -1,11 +1,11 @@
 /* Importar fuente desde Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
 
 /* Importar todos los estilos */
-@import "./styles/base.css";
-@import "./styles/snow.css";
-@import "./styles/countdown.css";
-@import "./styles/flip-clock.css";
-@import "./styles/footer.css";
-@import "./styles/music-controls.css";
-@import "./styles/responsive.css";
+@import './styles/base.css';
+@import './styles/snow.css';
+@import './styles/countdown.css';
+@import './styles/flip-clock.css';
+@import './styles/footer.css';
+@import './styles/music-controls.css';
+@import './styles/responsive.css';

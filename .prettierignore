@@ -1,0 +1,11 @@
+node_modules
+dist
+.vscode
+.env
+pnpm-lock.yaml
+tsconfig.json
+pnpm-workspace.yaml
+.prettierrc
+.eslintrc.cjs
+package.json 
+README.md 

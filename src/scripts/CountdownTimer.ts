@@ -1,16 +1,13 @@
 export class CountdownTimer {
   private countdownDiv: HTMLElement;
   private christmasDate: Date;
-  private notifyDays: number;
   private intervalId: number | null = null;
-  private notifiedDays: Set<number> = new Set();
-  private currentValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  private currentValues = { days: -1, hours: -1, minutes: -1, seconds: -1 };
+  private isShowingChristmasMessage = false;
 
-  constructor(containerId: string, notifyDays: number = 7) {
+  constructor(containerId: string) {
     this.countdownDiv = document.getElementById(containerId)!;
     this.christmasDate = new Date(new Date().getFullYear(), 11, 25, 0, 0, 0, 0);
-    this.notifyDays = notifyDays;
-    this.requestNotificationPermission();
     this.createCountdownStructure();
   }
 
@@ -85,20 +82,35 @@ export class CountdownTimer {
     `;
   }
 
-  private requestNotificationPermission(): void {
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission();
-    }
-  }
-
-  private calculateTimeLeft(): { days: number; hours: number; minutes: number; seconds: number } {
+  private calculateTimeLeft(): {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+    isChristmasDay: boolean;
+  } {
     const now = new Date();
+
+    // Check if it's currently Christmas Day (Dec 25th)
+    const isChristmasDay = now.getMonth() === 11 && now.getDate() === 25;
+
+    // If Christmas has passed this year (Dec 26-31), set target to next year
+    if (now.getTime() > this.christmasDate.getTime() && !isChristmasDay) {
+      this.christmasDate = new Date(now.getFullYear() + 1, 11, 25, 0, 0, 0, 0);
+    }
+
     const diff = this.christmasDate.getTime() - now.getTime();
+
+    if (isChristmasDay) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0, isChristmasDay: true };
+    }
+
     return {
       days: Math.floor(diff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60)
+      seconds: Math.floor((diff / 1000) % 60),
+      isChristmasDay: false,
     };
   }
 
@@ -144,7 +156,32 @@ export class CountdownTimer {
   }
 
   private updateCountdown(): void {
-    const { days, hours, minutes, seconds } = this.calculateTimeLeft();
+    const { days, hours, minutes, seconds, isChristmasDay } = this.calculateTimeLeft();
+
+    if (isChristmasDay) {
+      if (!this.isShowingChristmasMessage) {
+        this.countdownDiv.innerHTML = `
+          <div class="countdown-container">
+            <div class="countdown-content" style="text-align: center;">
+              <div class="countdown-title">
+                  <div class="countdown-title-christmas" style="color: #ff3b3b; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Merry 🎄</div>
+                  <div class="countdown-title-countdown" style="color: #4cd137; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Christmas 🎅</div>           
+              </div>
+              <p style="color: white; font-size: clamp(1rem, 2vw, 1.5rem); margin-top: 25px;">Wishing you joy, peace, and happiness!</p>
+            </div>
+          </div>
+        `;
+        this.isShowingChristmasMessage = true;
+      }
+      return;
+    }
+
+    // If it was Christmas but now it's not (e.g. Dec 26th), revert the UI
+    if (this.isShowingChristmasMessage) {
+      this.createCountdownStructure();
+      this.isShowingChristmasMessage = false;
+      this.currentValues = { days: -1, hours: -1, minutes: -1, seconds: -1 };
+    }
 
     if (days !== this.currentValues.days) {
       this.updateDigits(days, 'days', 3);
@@ -164,20 +201,6 @@ export class CountdownTimer {
     if (seconds !== this.currentValues.seconds) {
       this.updateDigits(seconds, 'seconds', 2);
       this.currentValues.seconds = seconds;
-    }
-
-    if (days <= this.notifyDays && days >= 0 && !this.notifiedDays.has(days)) {
-      this.sendNotification(days);
-      this.notifiedDays.add(days);
-    }
-  }
-
-  private sendNotification(days: number): void {
-    if (Notification.permission === 'granted') {
-      new Notification(`Only ${days} days until Christmas!`, {
-        icon: '🎄',
-        body: 'Christmas is coming!'
-      });
     }
   }
 
