@@ -5,7 +5,8 @@ export function initSnowSystem(canvasId: string) {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const ctx = canvas.getContext('2d')!;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   const snowflakes: Array<{
     x: number;
     y: number;
@@ -27,13 +28,13 @@ export function initSnowSystem(canvasId: string) {
     });
   }
 
-  function animateSnow() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function animateSnow(context: CanvasRenderingContext2D) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
     snowflakes.forEach((flake) => {
-      ctx.font = `${flake.size}px Arial`;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      ctx.fillText(flake.symbol, flake.x, flake.y);
+      context.font = `${flake.size}px Arial`;
+      context.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      context.fillText(flake.symbol, flake.x, flake.y);
 
       flake.y += flake.speed;
       flake.x += flake.drift;
@@ -50,10 +51,10 @@ export function initSnowSystem(canvasId: string) {
       }
     });
 
-    requestAnimationFrame(animateSnow);
+    requestAnimationFrame(() => animateSnow(context));
   }
 
-  animateSnow();
+  animateSnow(ctx);
 
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;

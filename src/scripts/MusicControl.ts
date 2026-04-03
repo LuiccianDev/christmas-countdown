@@ -14,7 +14,7 @@ export function initMusicControl() {
       musicIcon.textContent = '🔇';
       isPlaying = false;
     } else {
-      audio.play().catch((err) => console.log('Error playing audio:', err));
+      audio.play().catch(() => {});
       musicIcon.textContent = '🔊';
       isPlaying = true;
     }
@@ -24,7 +24,7 @@ export function initMusicControl() {
     'click',
     () => {
       if (!isPlaying) {
-        audio.play().catch((err) => console.log('Auto-play blocked:', err));
+        audio.play().catch(() => {});
         musicIcon.textContent = '🔊';
         isPlaying = true;
       }
