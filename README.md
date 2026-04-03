@@ -1,53 +1,73 @@
-# Christmas Countdown ⏰🎄
 
-Una página web interactiva con cuenta regresiva para Navidad, con efectos de nieve y música de fondo.
+ # Christmas Countdown 
+ <p align="center">
+	<img src="./public/readme.png" alt="Christmas Countdown" width="1200" />
+</p>
+
+ ![License](https://img.shields.io/github/license/LuiccianDev/christmas-countdown)
+ ![TypeScript](https://img.shields.io/badge/TypeScript-%5E6.0-blue)
+ ![Vite](https://img.shields.io/badge/Vite-%5E8.0-brightgreen)
+ ![Package Manager](https://img.shields.io/badge/PackageManager-pnpm-blue)
+
+ Una página web interactiva con cuenta regresiva para Navidad, con efectos de nieve y música de fondo.
 
 ![Christmas Countdown Preview](./public/picReadme.png)
+ *Portada: vista previa del proyecto*
 
-## Características
+ **Características**
 
-- ⏰ Cuenta regresiva en tiempo real hasta Navidad
-- ❄️ Efecto de nieve animado
-- 🎵 Música de fondo navideña con control de reproducción
-- 📱 Diseño responsive para todos los dispositivos
-- 🎨 Interfaz moderna con fuente pixel art
+ - ⏰ Cuenta regresiva en tiempo real hasta Navidad
+ - ❄️ Efecto de nieve animado (Canvas)
+ - 🎵 Música de fondo con controles de reproducción
+ - 📱 Diseño responsive
 
-## Tecnologías
+ **Tecnologías principales**
 
-- TypeScript
-- Vite
-- CSS3
-- HTML5 Canvas 2D
-- HTML5 Audio API
+ - TypeScript
+ - Vite
+ - HTML5 Canvas 2D
+ - HTML5 Audio API
+ - CSS3
 
-## Instalación
+ **Uso rápido**
 
-```bash
-# Instalar dependencias
-pnpm install
+ ```bash
+ # Instalar dependencias
+ pnpm install
 
-# Ejecutar en desarrollo
-pnpm dev
+ # Ejecutar en modo desarrollo
+ pnpm dev
 
-# Compilar para producción
-pnpm build
-```
+ # Compilar para producción
+ pnpm build
 
-## Música
+ # Ejecutar linter
+ pnpm run lint
 
-La música de fondo utilizada en este proyecto proviene de [Pixabay](https://pixabay.com/music/), una plataforma de contenido libre de derechos de autor.
+ # Formatear
+ pnpm run format
+ ```
 
-Para agregar tu propia música:
+ **Desarrollo y pruebas**
 
-1. Descarga música navideña de [Pixabay Music](https://pixabay.com/music/)
-2. Guarda el archivo como `christmas-music.mp3` en la carpeta `public/`
-3. La música se reproducirá automáticamente con el control en la esquina superior izquierda
+ - Abre `http://localhost:5173` (o la URL que indique Vite) para ver la app en desarrollo.
+ - Para probar sin servidor, abre `index.html` en `public/` en un navegador moderno.
 
-## Créditos
+ **Agregar tu propia música**
 
-- Música: [Pixabay](https://pixabay.com/music/) - Libre de derechos de autor
-- Desarrollado con ❤️ por [LuiccianDev](https://github.com/LuiccianDev)
+ 1. Coloca un archivo de audio (p.ej. `christmas-music.mp3`) en `public/music/`.
+ 2. Actualiza el `src` del elemento `<audio id="background-music">` si es necesario.
 
-## Licencia
+ **Estructura relevante**
 
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+ - `src/` - código TypeScript y estilos
+ - `public/` - recursos (imágenes, música, fuentes)
+ - `index.html` - punto de entrada
+
+ **Contribuciones**
+
+ Pull requests bienvenidos. Abre un issue antes de cambios grandes.
+
+ **Licencia**
+
+ MIT — ver el archivo [LICENSE](LICENSE)
