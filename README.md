@@ -5,8 +5,8 @@
 </p>
 
  ![License](https://img.shields.io/github/license/LuiccianDev/christmas-countdown)
- ![TypeScript](https://img.shields.io/badge/TypeScript-%5E6.0-blue)
- ![Vite](https://img.shields.io/badge/Vite-%5E8.0-brightgreen)
+ ![TypeScript](https://img.shields.io/badge/TypeScript-%5E5.9-blue)
+ ![Vite](https://img.shields.io/badge/Vite-%5E7.2-brightgreen)
  ![Package Manager](https://img.shields.io/badge/PackageManager-pnpm-blue)
 
  Una página web interactiva con cuenta regresiva para Navidad, con efectos de nieve y música de fondo.
