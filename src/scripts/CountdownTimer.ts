@@ -6,7 +6,9 @@ export class CountdownTimer {
   private isShowingChristmasMessage = false;
 
   constructor(containerId: string) {
-    this.countdownDiv = document.getElementById(containerId)!;
+    const el = document.getElementById(containerId);
+    if (!el) throw new Error(`Container not found: ${containerId}`);
+    this.countdownDiv = el;
     this.christmasDate = new Date(new Date().getFullYear(), 11, 25, 0, 0, 0, 0);
     this.createCountdownStructure();
   }

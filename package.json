@@ -1,6 +1,6 @@
 {
   "name": "christmas-countdown",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Interactive Christmas countdown with snow effects and background music",
   "private": true,
   "type": "module",
@@ -25,18 +25,18 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
-    "eslint": "^10.0.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "prettier": "^3.8.1",
-    "typescript": "~5.9.3",
-    "vite": "^7.2.4"
+    "@eslint/js": "10.0.1",
+    "eslint": "10.1.0",
+    "globals": "17.4.0",
+    "jiti": "2.6.1",
+    "prettier": "3.8.1",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "8.58.0",
+    "vite": "^8.0.3"
   },
-  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }

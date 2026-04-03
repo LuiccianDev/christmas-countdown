@@ -4,7 +4,8 @@ import { initSnowSystem } from './scripts/SnowSystem';
 import { initMusicControl } from './scripts/MusicControl';
 
 // Main element
-const appDiv = document.getElementById('app')!;
+const appDiv = document.getElementById('app');
+if (!appDiv) throw new Error('Element #app not found');
 appDiv.innerHTML = `
   <canvas id="snow-canvas"></canvas>
   <div id="countdown"></div>
